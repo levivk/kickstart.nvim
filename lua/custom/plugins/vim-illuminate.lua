@@ -11,6 +11,11 @@ return {
     illuminate.configure {
       delay = 0,
       under_cursor = false,
+      filetypes_denylist = {
+        'dirvish',
+        'fugitive',
+        'fugitiveblame',
+      }
     }
 
     -- remove bad keymaps
