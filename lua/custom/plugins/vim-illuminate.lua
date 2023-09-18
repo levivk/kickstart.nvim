@@ -38,8 +38,8 @@ return {
     end
 
     -- set better keymaps
-    vim.keymap.set('n', '<leader>,', illuminate.goto_prev_reference, {desc = 'vim-illuminate: Go to previous matching highlight text'})
-    vim.keymap.set('n', '<leader>.', illuminate.goto_next_reference, {desc = 'vim-illuminate: Go to next matching highlight text'})
+    vim.keymap.set('n', '[r', illuminate.goto_prev_reference, {desc = 'vim-illuminate: Go to previous matching highlight text'})
+    vim.keymap.set('n', ']r', illuminate.goto_next_reference, {desc = 'vim-illuminate: Go to next matching highlight text'})
 
     -- link highlight groups to lsp highlights
     vim.api.nvim_set_hl(0, 'IlluminatedWordText', {link='LspReferenceText'})

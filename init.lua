@@ -288,6 +288,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- keymap for exiting insert mode
+vim.keymap.set('i', '<A-i>', '<Esc>', {})
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -466,6 +468,25 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  --
+  -- pylsp uses a virtualenv in ~/.local/share/nvim/mason/packages/python-lsp-server.
+  -- You can install pylsp plugins into this virtualenv using :PylspInstall as documented here:
+  -- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/server_configurations/pylsp/README.md
+  -- I am using pylsp-mypy, python-lsp-ruff, and python-lsp-black. The ruff and black LSP integrations support configuration 
+  -- from the client (here) and pylsp-mypy does not (as of Sept 16 2023). All three are configured in a pyproject.toml, copied here
+  --
+  -- [tool.black]
+  -- line-length = 100
+  --
+  -- [tool.pylsp-mypy]
+  -- enabled = true
+  -- live_mode = true
+  -- strict = true
+  -- report_progress = true
+  --
+  -- [tool.ruff]
+  -- line-length = 100 
+  --
   pylsp = {
     pylsp = {
       plugins = {

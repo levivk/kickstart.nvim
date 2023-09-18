@@ -37,6 +37,7 @@ return {
     vim.keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', {desc = 'barbar: BufferPin'})
     -- Close buffer
     vim.keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>', {desc = 'barbar: BufferClose'})
+    vim.keymap.set('n', '<A-C>', '<Cmd>BufferClose!<CR>', {desc = 'barbar: BufferClose'})
     -- Wipeout buffer
     --                 :BufferWipeout
     -- Close commands
